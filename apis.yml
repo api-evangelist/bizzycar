@@ -1,7 +1,18 @@
 aid: bizzycar
 name: BizzyCar
-description: 'BizzyCar is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'BizzyCar is a B2B SaaS platform for automotive dealerships that automates
+  service recall management, customer outreach and mobile service. Founded in 2018
+  and headquartered in Saint Peters, Missouri, the company ingests VIN-level open-recall
+  data from OEM partners, matches it against a dealer''s market area and DMS records,
+  then uses AI-driven outreach (SMS, email, voice) to book service appointments and
+  dispatch mobile service vans. Products include Recall Outreach, Recall Scout, Recall
+  Radar, Service Engine, Mobile Service and Fleet IQ. BizzyCar is primarily an API
+  *consumer* rather than an API producer: it ships pre-built connectors into dealer
+  management systems (Dealertrack, DMS Plus, Open/Mate, Asbury, PBS, Tekion, Fortellis,
+  Reynolds & Reynolds) and service schedulers (Xtime, TCC, DealerFX, Affinitiv, Update
+  Promise), but publishes no public developer program, API reference or machine-readable
+  contract of its own.'
+image: https://www.bizzycar.com/hubfs/1.%201200x630.png
 url: https://raw.githubusercontent.com/api-evangelist/bizzycar/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +23,14 @@ created: '2026-08-07'
 modified: '2026-08-07'
 tags:
 - Company
+- Automotive
+- Recall Management
+- Dealerships
+- Mobile Service
+- Vehicle Service
+- Fleet Management
+- Scheduling
+- SaaS
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +38,45 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/bizzycar-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.bizzycar.com/
+- type: Blog
+  url: https://www.bizzycar.com/blog
+- type: Support
+  url: https://www.bizzycar.com/support
+- type: Login
+  url: https://www.portal.bizzycar.com/sign-in
+- type: TermsOfService
+  url: https://www.bizzycar.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.bizzycar.com/privacy-policy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/bizzycar
+- type: LLMsTxt
+  url: llms/bizzycar-llms.txt
+x-enrichment:
+  date: '2026-08-07'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    api.bizzycar.com is live but is BizzyCar's own application backend, not a product —
+    every contract path (/openapi.json, /swagger.json, /api-docs, /graphql) returns the
+    app's Rails JSON 404 envelope, none of the 238 URLs in the sitemap is a developer,
+    docs or API page, and there is no bizzycar GitHub org or package on any registry;
+    BizzyCar sells the DMS connectors it consumes, not an API it exposes.
+  evidence:
+  - url: https://api.bizzycar.com/openapi.json
+    status: 404
+  - url: https://api.bizzycar.com/graphql
+    status: 404
+  - url: https://www.bizzycar.com/sitemap.xml
+    status: 200
+  - url: https://api.github.com/orgs/bizzycar
+    status: 404
+  checked: '2026-08-07'
