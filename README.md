@@ -42,5 +42,23 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-BizzyCar is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+BizzyCar is a B2B SaaS platform for automotive dealerships that automates service recall
+management, customer outreach and mobile service. Founded in 2018 and headquartered in Saint Peters,
+Missouri, it ingests VIN-level open-recall data from OEM partners, matches it against a dealer's
+market area and DMS records, then uses AI-driven outreach to book service appointments and dispatch
+mobile service vans. Products: Recall Outreach, Recall Scout, Recall Radar, Service Engine, Mobile
+Service and Fleet IQ.
+
+## No public API surface
+
+BizzyCar is an API **consumer**, not an API producer. Its product value is the pre-built connectors
+it maintains *into* other people's APIs — dealer management systems (Dealertrack, DMS Plus,
+Open/Mate, Asbury, PBS, Tekion, Fortellis, Reynolds & Reynolds) and service schedulers (Xtime, TCC,
+DealerFX, Affinitiv, Update Promise). It publishes no developer portal, API reference, SDK, or
+machine-readable contract of its own. `api.bizzycar.com` is live but is the company's own
+application backend: every contract path probed returned its Rails JSON 404 envelope. See the
+`x-coverage` block in `apis.yml` for the probed evidence.
+
+- Website: https://www.bizzycar.com/
+- Blog: https://www.bizzycar.com/blog
+- Support: https://www.bizzycar.com/support

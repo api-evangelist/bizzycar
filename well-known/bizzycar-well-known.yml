@@ -1,0 +1,53 @@
+generated: '2026-08-07'
+method: probed
+source: live GET probes of /.well-known/* on every BizzyCar host discovered by DNS
+note: >-
+  No .well-known document was found on any BizzyCar host. This is a recorded negative
+  result, not a gap in the probe. The marketing host (www.bizzycar.com) is HubSpot CMS
+  and answers 404 with an HTML page for every unknown path; the application API host
+  (api.bizzycar.com) answers 404 with a JSON error envelope for every unknown path; the
+  dealer portal (portal.bizzycar.com) answers 403 with an HTML page for every unknown
+  path. No SecurityTxt, no OIDC/OAuth discovery, no api-catalog, no ai-plugin, no agent
+  card. Because nothing was found, no WellKnown / SecurityTxt pointer is wired into
+  apis.yml — an index of 404s must not earn a discovery credit.
+hosts:
+- host: https://api.bizzycar.com
+  note: application API host (Rails-style JSON error envelope on every unknown path)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://www.bizzycar.com
+  note: HubSpot CMS marketing site
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://portal.bizzycar.com
+  note: dealer sign-in portal; unauthenticated requests receive 403 HTML
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+documents: []
