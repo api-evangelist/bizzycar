@@ -12,6 +12,17 @@ description: 'BizzyCar is a B2B SaaS platform for automotive dealerships that au
   Reynolds & Reynolds) and service schedulers (Xtime, TCC, DealerFX, Affinitiv, Update
   Promise), but publishes no public developer program, API reference or machine-readable
   contract of its own.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.bizzycar.com/hubfs/1.%201200x630.png
 url: https://raw.githubusercontent.com/api-evangelist/bizzycar/refs/heads/main/apis.yml
 x-type: company
